@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Aquaphobic fish</title>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="container">
+  <div id="header">
+    <h1>Center for Aquaphobic Fish</h1>
+  </div>
+  <div id="sidebar1">
+    <ul id="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="faq.html">FAQs</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="survivors.html">Survivors</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="movies.html">Movies</a></li>
+    </ul>
+  </div>
+  <div id="mainContent">
+    <h1>Contact</h1>
+    <form method="get" action="process_form.html">
+      <p>
+        <label for="fname">First Name:</label>
+        <input name="fname" type="text" id="fname" value="First" class="required">
+      </p>
+      <p>
+        <label for="lname">Last Name:</label>
+        <input name="lname" type="text" id="lname" value="Last">
+      </p>
+      <p>
+        <label for="email">Email address:</label>
+        <input type="text" name="email" id="email" class="required">
+      </p>
+      <p>
+        <label for="date">Date of first treatment:</label>
+        <input type="text" name="date" id="date" class="required">
+      </p>       
+      <p>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" id="comments" cols="45" rows="5">Comments, questions, or interesting recipes for fish</textarea>
+      </p>
+      <p id="fishFormImages">
+        Drag the fish into the aquarium to submit this form.<br>
+        <img src="images/formimages/pumpkin.png" alt="pumpkin" id="pumpkin">
+        <img src="images/formimages/fish.png" alt="fish" id="fish">
+        <img src="images/formimages/tire.png" alt="tire" id="tire"><br>
+        <img src="images/formimages/car.png" alt="car" id="car">
+        <img src="images/formimages/cauldron.png" alt="cauldron" id="cauldron">
+        <img src="images/formimages/aquarium.png" alt="aquarium" id="aquarium">
+      </p>
+    </form>
+  </div>
+  <br class="clearfloat">
+</div>
+</body>
+</html>
