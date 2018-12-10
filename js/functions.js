@@ -42,4 +42,6 @@ function tableFix(){
     $('table tr:nth-child(even)').addClass('rowA');
     $('table tr:nth-child(odd)').addClass('rowB');
   }
+  //Use hand cursor on tables
+  $('td').css({cursor: 'pointer'});
 }
