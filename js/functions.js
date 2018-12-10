@@ -53,7 +53,7 @@ function tableFix(){
     }
   });
   //make years look like links in duck page
-  $('table td:nth-child(odd)').css({
+  $('#duck_stories td:nth-child(odd)').css({
     color: '#0000EE',
     'text-decoration':'underline'
   });
