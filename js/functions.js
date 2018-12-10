@@ -1,3 +1,0 @@
-function testCall(){
-  alert('connected');
-}
