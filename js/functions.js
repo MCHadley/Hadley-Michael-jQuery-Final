@@ -45,10 +45,16 @@ function tableFix(){
   //Use hand cursor on tables
   $('td').css({cursor: 'pointer'});
 
+  //make table row links
   $('table tr').click(function(){
     var href = $(this).find('a').attr('href');
     if(href){
       window.open(href, '_blank');
     }
+  });
+  //make years look like links in duck page
+  $('table td:nth-child(odd)').css({
+    color: '#0000EE',
+    'text-decoration':'underline'
   });
 }
