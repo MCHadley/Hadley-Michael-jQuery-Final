@@ -130,3 +130,14 @@ label {
 /***************************************************************/
 /***************************************************************/
 /* table row colors */
+ .rowHead{
+  background-color: rgb(106, 194, 231);
+ }
+
+ .rowOdd{
+  background-color: #a35562;
+ }
+
+ .rowEven{
+  background-color: #f0ea7c;
+ }
