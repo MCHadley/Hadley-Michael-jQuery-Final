@@ -83,11 +83,11 @@ function contactForm(){
   var elements = $('#fname, #lname, #fullname');
 
   elements.focus(function(){
-    var defVal = $(this).prop('defaultValue')
-    var curVal = $(this).val();
+    var defVal = $(this).prop('defaultValue') //get def val for item selected
+    var curVal = $(this).val(); //get current val for item selected
     if(defVal == curVal){
       $(this).val('');
-    } //end if statement
+    } //end if statement comparing vals and making val blank when selected
   }); //end focus anon func
 
   elements.blur(function(){
