@@ -107,3 +107,7 @@ function contactForm(){
   $('#sightingdate').datepicker(dateOpts);
 
 }
+
+function dragDrop(){
+  $('.draggable').draggable({cursor: 'move', revert: true, zIndex: 100});
+}
