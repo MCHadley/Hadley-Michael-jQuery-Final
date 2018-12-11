@@ -95,4 +95,15 @@ function contactForm(){
       $(this).val($(this).prop('defaultValue'));
     }
   }); //end blur anon func
+  
+  // datepicker options
+  var dateOpts = {
+    changeYear: true,
+    changeMonth: true,
+    dateFormat : 'mm/dd/yy',
+    maxDate: 0
+  }
+  $('#date').datepicker(dateOpts);
+  $('#sightingdate').datepicker(dateOpts);
+
 }
