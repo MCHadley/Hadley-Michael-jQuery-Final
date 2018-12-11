@@ -3,4 +3,5 @@ $('document').ready(function(){
   navLinks();
   tableFix();
   duckPics();
+  contactForm();
 });

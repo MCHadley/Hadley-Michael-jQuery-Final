@@ -78,3 +78,21 @@ function duckPics(){
     oldImage.remove(); //remove previous image
   });
 }
+
+function contactForm(){
+  var elements = $('#fname, #lname, #fullname');
+
+  elements.focus(function(){
+    var defVal = $(this).prop('defaultValue')
+    var curVal = $(this).val();
+    if(defVal == curVal){
+      $(this).val('');
+    } //end if statement
+  }); //end focus anon func
+
+  elements.blur(function(){
+    if($(this).val() == ''){
+      $(this).val($(this).prop('defaultValue'));
+    }
+  }); //end blur anon func
+}
