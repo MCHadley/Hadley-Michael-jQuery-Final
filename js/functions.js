@@ -59,22 +59,3 @@ function tableFix(){
   });
 }
 
-function duckPics(){
-  var firstImgPath = $('#galleryThumbs a').attr('href'); //grab the first image
-  var altText = $('#galleryThumbs img').attr('alt'); //grab image alt text
-  var firstImage = $('<figure id="galleryBig"><img src="'+ firstImgPath +'" alt="'+ altText + '"><figcaption>'+ altText +'</figcaption></figure>'); //create big first image with alt text and figure caption
-  $('#galleryThumbs').after(firstImage); // place first image
-
-  $('#gallery a').click(function(evt){
-    evt.preventDefault(); // prevent default action
-    oldImage = $('#galleryBig').children(':first'); //grab the first image
-    var imgPath = $(this).attr('href'); // create path from img clicked on
-    var newAlt = $(this).children().attr('alt'); // grab clicked img alt text
-    $('figcaption').text(newAlt).remove().fadeIn(2000); //remove old figcap and add new figcap
-    var newImage = $('<img src="' + imgPath + '" alt="'+ newAlt +'"><figcaption>'+ newAlt +'</figcaption>'); // create new image from clicked img with alt tex and fig caption
-    newImage.hide(); //hide the previous image
-    $('#galleryBig').prepend(newImage); //add image to end of big gallery
-    newImage.fadeIn(2000); //fade new image in
-    oldImage.remove(); //remove previous image
-  });
-}
