@@ -110,4 +110,21 @@ function contactForm(){
 
 function dragDrop(){
   $('.draggable').draggable({cursor: 'move', revert: true, zIndex: 100});
+  $('.droppable').droppable({
+    classes: {
+      'ui-droppable-active': 'dropHighlight'
+    },
+    classes: {
+      'ui-droppable-active': 'highlightFishTargets'
+    },
+    tolerance: 'touch',
+    drop: function(event, ui){
+      var dragID = ui.helper.attr('id');
+      if(dragID == 'fish' || dragID == 'formDuck'){
+        console.log('true');
+      }else{
+        console.log('false');
+      }
+    }
+  });
 }
