@@ -112,7 +112,7 @@ function dragDrop(){
   var url = window.location.href; //grab full URL
   var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
   var duckName = projLink.startsWith('Duck'); //grab and verify project Name
-  var dropClass;
+  var dropHighlightClass;
   if(duckName == true){
     dropClass = 'dropHighlight';
   }else{
@@ -122,7 +122,7 @@ function dragDrop(){
   $('.draggable').draggable({cursor: 'move', revert: true, zIndex: 100});
   $('.droppable').droppable({
     classes: {
-      'ui-droppable-active': dropClass
+      'ui-droppable-active': dropHighlightClass
     },
     tolerance: 'touch',
     drop: function(event, ui){
