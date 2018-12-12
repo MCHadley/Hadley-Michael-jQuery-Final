@@ -114,9 +114,9 @@ function dragDrop(){
   var duckName = projLink.startsWith('Duck'); //grab and verify project Name
   var dropHighlightClass;
   if(duckName == true){
-    dropClass = 'dropHighlight';
+    dropHighlightClass = 'dropHighlight';
   }else{
-    dropClass = 'highlightFishTargets'
+    dropHighlightClass = 'highlightFishTargets'
   }
 
   $('.draggable').draggable({cursor: 'move', revert: true, zIndex: 100});
@@ -126,7 +126,7 @@ function dragDrop(){
     },
     tolerance: 'touch',
     drop: function(event, ui){
-      var dragID = ui.helper.attr('id');
+      var dragID = $(this).attr('class');
       if(dragID == 'fish' || dragID == 'formDuck'){
         console.log('true');
       }else{
