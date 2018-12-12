@@ -181,3 +181,7 @@ function dragDrop(){
     }
   });
 }
+
+function sendData(){
+
+}
