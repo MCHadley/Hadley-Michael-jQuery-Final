@@ -107,3 +107,31 @@ function contactForm(){
   $('#sightingdate').datepicker(dateOpts);
 
 }
+
+function dragDrop(){
+  var url = window.location.href; //grab full URL
+  var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
+  var duckName = projLink.startsWith('Duck'); //grab and verify project Name
+  var dropHighlightClass;
+  if(duckName == true){
+    dropHighlightClass = 'dropHighlight';
+  }else{
+    dropHighlightClass = 'highlightFishTargets'
+  }
+
+  $('.draggable').draggable({cursor: 'move', revert: true, zIndex: 100});
+  $('.droppable').droppable({
+    classes: {
+      'ui-droppable-active': dropHighlightClass
+    },
+    tolerance: 'touch',
+    drop: function(event, ui){
+      var dropClass = $(this).attr('id');
+      var dragClass = ui.helper.attr('id');
+      if(dropClass == 'aquarium' && dragClass == 'fish' || dropClass == 'formPond' && dragClass == 'formDuck'){
+        console.log('true');
+        $('form').trigger('submit');
+      }
+    }
+  });
+}
