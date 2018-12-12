@@ -109,13 +109,20 @@ function contactForm(){
 }
 
 function dragDrop(){
+  var url = window.location.href; //grab full URL
+  var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
+  var duckName = projLink.startsWith('Duck'); //grab and verify project Name
+  var dropClass;
+  if(duckName == true){
+    dropClass = 'dropHighlight';
+  }else{
+    dropClass = 'highlightFishTargets'
+  }
+
   $('.draggable').draggable({cursor: 'move', revert: true, zIndex: 100});
   $('.droppable').droppable({
     classes: {
-      'ui-droppable-active': 'dropHighlight'
-    },
-    classes: {
-      'ui-droppable-active': 'highlightFishTargets'
+      'ui-droppable-active': dropClass
     },
     tolerance: 'touch',
     drop: function(event, ui){
