@@ -175,7 +175,6 @@ function dragDrop(){
       var dropClass = $(this).attr('id');
       var dragClass = ui.helper.attr('id');
       if(dropClass == 'aquarium' && dragClass == 'fish' || dropClass == 'formPond' && dragClass == 'formDuck'){
-        console.log('true');
         $('form').trigger('submit');
       }
     }
