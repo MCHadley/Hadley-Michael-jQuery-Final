@@ -106,6 +106,34 @@ function contactForm(){
   $('#date').datepicker(dateOpts);
   $('#sightingdate').datepicker(dateOpts);
 
+  $('form').validate({
+    rules: {
+      fname: 'required',
+      lname: 'required',
+      fullname: 'required',
+      email: 'required',
+      emailaddy: 'required',
+      date: {
+        required: true,
+        date: true
+      },
+      sightingdate: {
+        required: true,
+        date: true
+      }
+    },
+    messages: {
+      fname: 'Please enter your first name',
+      lname: 'Please enter your last name',
+      fullname: 'Please enter your name',
+      email: 'Your email address is required',
+      emailaddy: 'Your email address is required'
+    },
+    submitHandler: function(form){
+      dragDrop();
+    }
+  });
+
 }
 
 function dragDrop(){
