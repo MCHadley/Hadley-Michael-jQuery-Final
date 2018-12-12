@@ -110,7 +110,7 @@ function contactForm(){
   jQuery.validator.addMethod('defaultVal', function(value, element){
     return this.optional(element) || value == $(this).prop('defaultValue')
   }, 'Please input your name')
-
+  //form validation
   $('form').validate({
     rules: {
       fname: {
