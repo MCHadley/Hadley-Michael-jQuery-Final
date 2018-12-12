@@ -126,11 +126,10 @@ function dragDrop(){
     },
     tolerance: 'touch',
     drop: function(event, ui){
-      var dragID = $(this).attr('class');
-      if(dragID == 'fish' || dragID == 'formDuck'){
+      var dropClass = $(this).attr('id');
+      var dragClass = ui.helper.attr('id');
+      if(dropClass == 'aquarium' && dragClass == 'fish' || dropClass == 'formPond' && dragClass == 'formDuck'){
         console.log('true');
-      }else{
-        console.log('false');
       }
     }
   });
