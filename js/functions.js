@@ -142,11 +142,6 @@ function contactForm(){
         date: true
       }
     },
-    messages: {
-      fname: 'Please input your first name',
-      lname: 'Please input your last name',
-      fullname: 'Please input your fullname'
-    },
     submitHandler: function(form){
       dragDrop();
     }
