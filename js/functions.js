@@ -106,13 +106,33 @@ function contactForm(){
   $('#date').datepicker(dateOpts);
   $('#sightingdate').datepicker(dateOpts);
 
+  //Custom validator method for checking input against default value
+  jQuery.validator.addMethod('defaultVal', function(value, element){
+    return this.optional(element) || value == $(this).prop('defaultValue')
+  }, 'Please input your name')
+
   $('form').validate({
     rules: {
-      fname: 'required',
-      lname: 'required',
-      fullname: 'required',
-      email: 'required',
-      emailaddy: 'required',
+      fname: {
+        required: true,
+        defaultVal: true
+      },
+      lname: {
+        required: true,
+        defaultVal: true
+      },
+      fullname: {
+        required: true,
+        defaultVal: true
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      emailaddy: {
+        required: true,
+        email: true
+      },
       date: {
         required: true,
         date: true
@@ -123,11 +143,9 @@ function contactForm(){
       }
     },
     messages: {
-      fname: 'Please enter your first name',
-      lname: 'Please enter your last name',
-      fullname: 'Please enter your name',
-      email: 'Your email address is required',
-      emailaddy: 'Your email address is required'
+      fname: 'Please input your first name',
+      lname: 'Please input your last name',
+      fullname: 'Please input your fullname'
     },
     submitHandler: function(form){
       dragDrop();
