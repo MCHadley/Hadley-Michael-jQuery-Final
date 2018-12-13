@@ -107,46 +107,43 @@ function contactForm(){
   //   return this.optional(element) || value == $(this).prop('defaultValue')
   // }, 'Please input your name')
   // //form validation
-  // $('form').validate({
-  //   rules: {
-  //     fname: {
-  //       required: true,
-  //       defaultVal: true
-  //     },
-  //     lname: {
-  //       required: true,
-  //       defaultVal: true
-  //     },
-  //     fullname: {
-  //       required: true,
-  //       defaultVal: true
-  //     },
-  //     email: {
-  //       required: true,
-  //       email: true
-  //     },
-  //     emailaddy: {
-  //       required: true,
-  //       email: true
-  //     },
-  //     date: {
-  //       required: true,
-  //       date: true
-  //     },
-  //     sightingdate: {
-  //       required: true,
-  //       date: true
-  //     }
-  //   },
-  //   messages: {
-  //     fname: 'Please input your first name',
-  //     lname: 'Please input your last name',
-  //     fullname: 'Please input your fullname'
-  //   },
-  //   submitHandler: function(form){
-  //     dragDrop();
-  //   }
-  // });
+  $('form').validate({
+    rules: {
+      fname: {
+        required: true,
+      },
+      lname: {
+        required: true,
+      },
+      fullname: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      emailaddy: {
+        required: true,
+        email: true
+      },
+      date: {
+        required: true,
+        date: true
+      },
+      sightingdate: {
+        required: true,
+        date: true
+      }
+    },
+    messages: {
+      fname: 'Please input your first name',
+      lname: 'Please input your last name',
+      fullname: 'Please input your fullname'
+    },
+    submitHandler: function(form){
+      dragDrop();
+    }
+  });
 
 }
 
