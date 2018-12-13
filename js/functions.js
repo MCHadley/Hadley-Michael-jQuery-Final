@@ -106,18 +106,62 @@ function contactForm(){
   $('#date').datepicker(dateOpts);
   $('#sightingdate').datepicker(dateOpts);
 
-  
+  //Custom validator method for checking input against default value
+  // jQuery.validator.addMethod('defaultVal', function(value, element){
+  //   return this.optional(element) || value == $(this).prop('defaultValue')
+  // }, 'Please input your name')
+  // //form validation
+  // $('form').validate({
+  //   rules: {
+  //     fname: {
+  //       required: true,
+  //       defaultVal: true
+  //     },
+  //     lname: {
+  //       required: true,
+  //       defaultVal: true
+  //     },
+  //     fullname: {
+  //       required: true,
+  //       defaultVal: true
+  //     },
+  //     email: {
+  //       required: true,
+  //       email: true
+  //     },
+  //     emailaddy: {
+  //       required: true,
+  //       email: true
+  //     },
+  //     date: {
+  //       required: true,
+  //       date: true
+  //     },
+  //     sightingdate: {
+  //       required: true,
+  //       date: true
+  //     }
+  //   },
+  //   messages: {
+  //     fname: 'Please input your first name',
+  //     lname: 'Please input your last name',
+  //     fullname: 'Please input your fullname'
+  //   },
+  //   submitHandler: function(form){
+  //     dragDrop();
+  //   }
+  // });
 
 }
 
-function dragDrop(){
-  var url = window.location.href; //grab full URL
-  var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
-  var duckName = projLink.startsWith('Duck'); //grab and verify project Name
+function dragDrop(animal){
+  // var url = window.location.href; //grab full URL
+  // var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
+  // var animalName = projLink.startsWith(animal); //grab and verify project Name
   var dropHighlightClass;
-  if(duckName == true){
+  if(animal == 'Duck'){
     dropHighlightClass = 'dropHighlight';
-  }else{
+  }else if(animal== 'Fish'){
     dropHighlightClass = 'highlightFishTargets'
   }
 
@@ -135,4 +179,52 @@ function dragDrop(){
       }
     }
   });
+}
+
+function movieSearch(animal){
+  var url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json";
+  url += '?' + $.param({
+  'api-key': "3f72907d78fc4363a3c68fedc856d799",
+  'query': animal,
+  });
+  $.getJSON(url, displayResults);
+}
+
+
+function displayResults(dataFromServer){
+  var location = window.location.href;
+  if(location.includes('media')){
+    $('#content').append('<ol id="resultsList"></ol>')
+    var results = dataFromServer.results;
+    var count = results.length;
+    $.each(results, function(resultsIndex, resultsValue){
+    var title = resultsValue.display_title;
+    var rating = resultsValue.mpaa_rating;
+    var summary = resultsValue.summary_short;
+    var openDate = resultsValue.opening_date;
+    var link = resultsValue.link.url;
+    var movieString = title + ' rating: ' + rating;
+    movieString += '<br>' + openDate + '<br>' + summary + '<br><a href="' + link + '"target=_blank">' + link + '</a>';
+    var li = '<li>' + movieString + '</li>';
+    $('#resultsList').append(li);
+  });
+  $('p').append('<p>Showing ' + count + ' movies');
+  }else if(location.includes('movies')){
+    $('#mainContent').append('<ol id="resultsList"></ol>')
+    var results = dataFromServer.results;
+    var count = results.length;
+    $.each(results, function(resultsIndex, resultsValue){
+      var title = resultsValue.display_title;
+      var rating = resultsValue.mpaa_rating;
+      var summary = resultsValue.summary_short;
+      var openDate = resultsValue.opening_date;
+      var link = resultsValue.link.url;
+      var movieString = title + ' rating: ' + rating;
+      movieString += '<br>' + openDate + '<br>' + summary + '<br><a href="' + link + '"target=_blank">' + link + '</a>';
+      var li = '<li>' + movieString + '</li>';
+      $('#resultsList').append(li);
+      console.log($('li').size)
+    });// end each fund
+    $('p').append('<p>Showing ' + count + ' movies');
+  }
 }

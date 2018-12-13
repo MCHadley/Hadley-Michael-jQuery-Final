@@ -3,6 +3,6 @@ $('document').ready(function(){
   navLinks();
   tableFix();
   galleryFunc();
-  contactForm();
-  dragDrop();
+  dragDrop('Fish');
+  movieSearch('fish');
 });
