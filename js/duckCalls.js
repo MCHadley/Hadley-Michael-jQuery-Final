@@ -3,6 +3,7 @@ $('document').ready(function(){
   navLinks();
   tableFix('Duck');
   galleryFunc();
+  contactForm();
   dragDrop('Duck');
   movieSearch('spider-man');
 });
