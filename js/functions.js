@@ -154,14 +154,14 @@ function contactForm(){
 
 }
 
-function dragDrop(){
-  var url = window.location.href; //grab full URL
-  var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
-  var duckName = projLink.startsWith('Duck'); //grab and verify project Name
+function dragDrop(animal){
+  // var url = window.location.href; //grab full URL
+  // var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
+  // var animalName = projLink.startsWith(animal); //grab and verify project Name
   var dropHighlightClass;
-  if(duckName == true){
+  if(animal == 'Duck'){
     dropHighlightClass = 'dropHighlight';
-  }else{
+  }else if(animal== 'Fish'){
     dropHighlightClass = 'highlightFishTargets'
   }
 

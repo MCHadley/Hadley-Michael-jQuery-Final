@@ -4,6 +4,6 @@ $('document').ready(function(){
   tableFix();
   contactForm();
   galleryFunc();
-  dragDrop();
+  dragDrop('Fish');
   movieSearch('fish');
 });
