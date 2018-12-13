@@ -1,7 +1,7 @@
 $('document').ready(function(){
   faqAccord();
   navLinks();
-  tableFix();
+  tableFix('Fish');
   galleryFunc();
   dragDrop('Fish');
   movieSearch('fish');

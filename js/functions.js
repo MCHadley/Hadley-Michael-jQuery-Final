@@ -28,16 +28,12 @@ function navLinks(){
     $("a[href^='http://']").attr('target', '_blank'); // make external links open in new window/tab
 }
 
-function tableFix(){
-  var url = window.location.href; //grab full URL
-  var projLink = url.substr(url.lastIndexOf('project') + 10) //grab current page
-  var duckName = projLink.startsWith('Duck'); //grab and verify project Name
-  // compare project name and apply correct table striping class
-  if(duckName == true){
+function tableFix(animal){
+  if(animal == 'Duck'){
     $('table th').addClass('rowHead');
     $('table tr:nth-child(even)').addClass('rowEven');
     $('table tr:nth-child(odd)').addClass('rowOdd');
-  }else{
+  }else if(animal == 'Fish'){
     $('table th').addClass('rowOver');
     $('table tr:nth-child(even)').addClass('rowA');
     $('table tr:nth-child(odd)').addClass('rowB');

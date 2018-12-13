@@ -1,7 +1,7 @@
 $('document').ready(function(){
   faqAccord();
   navLinks();
-  tableFix();
+  tableFix('Duck');
   galleryFunc();
   dragDrop('Duck');
   movieSearch('spider-man');
