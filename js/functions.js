@@ -197,6 +197,7 @@ function displayResults(dataFromServer){
   if(location.includes('media')){
     $('#content').append('<ol id="resultsList"></ol>')
     var results = dataFromServer.results;
+    var count = results.length;
     $.each(results, function(resultsIndex, resultsValue){
     var title = resultsValue.display_title;
     var rating = resultsValue.mpaa_rating;
@@ -208,9 +209,11 @@ function displayResults(dataFromServer){
     var li = '<li>' + movieString + '</li>';
     $('#resultsList').append(li);
   });
+  $('p').append('<p>Showing ' + count + ' movies');
   }else if(location.includes('movies')){
     $('#mainContent').append('<ol id="resultsList"></ol>')
     var results = dataFromServer.results;
+    var count = results.length;
     $.each(results, function(resultsIndex, resultsValue){
       var title = resultsValue.display_title;
       var rating = resultsValue.mpaa_rating;
@@ -221,6 +224,8 @@ function displayResults(dataFromServer){
       movieString += '<br>' + openDate + '<br>' + summary + '<br><a href="' + link + '"target=_blank">' + link + '</a>';
       var li = '<li>' + movieString + '</li>';
       $('#resultsList').append(li);
-    });
+      console.log($('li').size)
+    });// end each fund
+    $('p').append('<p>Showing ' + count + ' movies');
   }
 }
