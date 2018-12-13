@@ -107,50 +107,50 @@ function contactForm(){
   $('#sightingdate').datepicker(dateOpts);
 
   //Custom validator method for checking input against default value
-  jQuery.validator.addMethod('defaultVal', function(value, element){
-    return this.optional(element) || value == $(this).prop('defaultValue')
-  }, 'Please input your name')
-  //form validation
-  $('form').validate({
-    rules: {
-      fname: {
-        required: true,
-        defaultVal: true
-      },
-      lname: {
-        required: true,
-        defaultVal: true
-      },
-      fullname: {
-        required: true,
-        defaultVal: true
-      },
-      email: {
-        required: true,
-        email: true
-      },
-      emailaddy: {
-        required: true,
-        email: true
-      },
-      date: {
-        required: true,
-        date: true
-      },
-      sightingdate: {
-        required: true,
-        date: true
-      }
-    },
-    messages: {
-      fname: 'Please input your first name',
-      lname: 'Please input your last name',
-      fullname: 'Please input your fullname'
-    },
-    submitHandler: function(form){
-      dragDrop();
-    }
-  });
+  // jQuery.validator.addMethod('defaultVal', function(value, element){
+  //   return this.optional(element) || value == $(this).prop('defaultValue')
+  // }, 'Please input your name')
+  // //form validation
+  // $('form').validate({
+  //   rules: {
+  //     fname: {
+  //       required: true,
+  //       defaultVal: true
+  //     },
+  //     lname: {
+  //       required: true,
+  //       defaultVal: true
+  //     },
+  //     fullname: {
+  //       required: true,
+  //       defaultVal: true
+  //     },
+  //     email: {
+  //       required: true,
+  //       email: true
+  //     },
+  //     emailaddy: {
+  //       required: true,
+  //       email: true
+  //     },
+  //     date: {
+  //       required: true,
+  //       date: true
+  //     },
+  //     sightingdate: {
+  //       required: true,
+  //       date: true
+  //     }
+  //   },
+  //   messages: {
+  //     fname: 'Please input your first name',
+  //     lname: 'Please input your last name',
+  //     fullname: 'Please input your fullname'
+  //   },
+  //   submitHandler: function(form){
+  //     dragDrop();
+  //   }
+  // });
 
 }
 
@@ -182,6 +182,45 @@ function dragDrop(){
   });
 }
 
-function sendData(){
+function movieSearch(animal){
+  var url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json";
+  url += '?' + $.param({
+  'api-key': "3f72907d78fc4363a3c68fedc856d799",
+  'query': animal,
+  });
+  $.getJSON(url, displayResults);
+}
 
+
+function displayResults(dataFromServer){
+  var location = window.location.href;
+  if(location.includes('media')){
+    $('#content').append('<ol id="resultsList"></ol>')
+    var results = dataFromServer.results;
+    $.each(results, function(resultsIndex, resultsValue){
+    var title = resultsValue.display_title;
+    var rating = resultsValue.mpaa_rating;
+    var summary = resultsValue.summary_short;
+    var openDate = resultsValue.opening_date;
+    var link = resultsValue.link.url;
+    var movieString = title + ' rating: ' + rating;
+    movieString += '<br>' + openDate + '<br>' + summary + '<br><a href="' + link + '"target=_blank">' + link + '</a>';
+    var li = '<li>' + movieString + '</li>';
+    $('#resultsList').append(li);
+  });
+  }else if(location.includes('movies')){
+    $('#mainContent').append('<ol id="resultsList"></ol>')
+    var results = dataFromServer.results;
+    $.each(results, function(resultsIndex, resultsValue){
+      var title = resultsValue.display_title;
+      var rating = resultsValue.mpaa_rating;
+      var summary = resultsValue.summary_short;
+      var openDate = resultsValue.opening_date;
+      var link = resultsValue.link.url;
+      var movieString = title + ' rating: ' + rating;
+      movieString += '<br>' + openDate + '<br>' + summary + '<br><a href="' + link + '"target=_blank">' + link + '</a>';
+      var li = '<li>' + movieString + '</li>';
+      $('#resultsList').append(li);
+    });
+  }
 }
