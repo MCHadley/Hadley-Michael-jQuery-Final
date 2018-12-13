@@ -7,7 +7,6 @@
   <link href="css/jquery-ui.min.css" rel="stylesheet">
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/jquery-ui.min.js"></script>
-  <script src="../js/jquery.validate.min.js"></script>
   <script src="../js/functions.js"></script>
   <script src="../js/duckCalls.js"></script>
 </head>
@@ -31,15 +30,15 @@
       <form method="get" action="process_form.html">
         <p>
           <label for="fullname">Name:</label>
-          <input name="fullname" type="text" id="fullname" value="First Last">
+          <input name="fullname" type="text" id="fullname" value="First Last" required>
         </p>
         <p>
           <label for="emailaddy">Email address:</label>
-          <input type="text" name="emailaddy" id="emailaddy">
+          <input type="email" name="emailaddy" id="emailaddy" required>
         </p>
         <p>
           <label for="sightingdate">Date of duck sighting:</label>
-          <input type="text" name="sightingdate" id="sightingdate">
+          <input type="text" name="sightingdate" id="sightingdate" required>
         </p>      
         <p>
           <label for="comments">Comments:</label>

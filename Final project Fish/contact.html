@@ -7,7 +7,6 @@
   <link href="css/jquery-ui.min.css" rel="stylesheet">
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/jquery-ui.min.js"></script>
-  <script src="../js/jquery.validate.min.js"></script>
   <script src="../js/functions.js"></script>
   <script src="../js/fishCalls.js"></script>
 </head>
@@ -32,19 +31,19 @@
     <form method="get" action="process_form.html">
       <p>
         <label for="fname">First Name:</label>
-        <input name="fname" type="text" id="fname" value="First">
+        <input name="fname" type="text" id="fname" value="First" required>
       </p>
       <p>
         <label for="lname">Last Name:</label>
-        <input name="lname" type="text" id="lname" value="Last">
+        <input name="lname" type="text" id="lname" value="Last" required>
       </p>
       <p>
         <label for="email">Email address:</label>
-        <input type="text" name="email" id="email">
+        <input type="email" name="email" id="email" required>
       </p>
       <p>
         <label for="date">Date of first treatment:</label>
-        <input type="text" name="date" id="date">
+        <input type="text" name="date" id="date" required>
       </p>       
       <p>
         <label for="comments">Comments:</label>

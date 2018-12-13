@@ -102,49 +102,6 @@ function contactForm(){
   $('#date').datepicker(dateOpts);
   $('#sightingdate').datepicker(dateOpts);
 
-  //Custom validator method for checking input against default value
-  // jQuery.validator.addMethod('defaultVal', function(value, element){
-  //   return this.optional(element) || value == $(this).prop('defaultValue')
-  // }, 'Please input your name')
-  // //form validation
-  $('form').validate({
-    rules: {
-      fname: {
-        required: true,
-      },
-      lname: {
-        required: true,
-      },
-      fullname: {
-        required: true,
-      },
-      email: {
-        required: true,
-        email: true
-      },
-      emailaddy: {
-        required: true,
-        email: true
-      },
-      date: {
-        required: true,
-        date: true
-      },
-      sightingdate: {
-        required: true,
-        date: true
-      }
-    },
-    messages: {
-      fname: 'Please input your first name',
-      lname: 'Please input your last name',
-      fullname: 'Please input your fullname'
-    },
-    submitHandler: function(form){
-      dragDrop();
-    }
-  });
-
 }
 
 function dragDrop(animal){
@@ -168,7 +125,7 @@ function dragDrop(animal){
       var dropClass = $(this).attr('id');
       var dragClass = ui.helper.attr('id');
       if(dropClass == 'aquarium' && dragClass == 'fish' || dropClass == 'formPond' && dragClass == 'formDuck'){
-        $('form').trigger('submit');
+       $('form').submit();
       }
     }
   });
