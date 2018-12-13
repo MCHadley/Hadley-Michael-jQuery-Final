@@ -5,5 +5,5 @@ $('document').ready(function(){
   galleryFunc();
   contactForm();
   dragDrop('Duck');
-  movieSearch('spider-man');
+  movieSearch('duck');
 });
