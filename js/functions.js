@@ -140,7 +140,6 @@ function movieSearch(animal){
   $.getJSON(url, displayResults);
 }
 
-
 function displayResults(dataFromServer){
   var location = window.location.href;
   if(location.includes('media')){
